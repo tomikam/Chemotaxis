@@ -1,10 +1,26 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Chemotaxis extends PApplet {
+
 //declare bacteria variables here 
 
 Bacteria colony [];
 Food stash [];
 Threat cabal [];
 
- void setup()   
+ public void setup()   
  {     
  	//initialize bacteria variables here   
  	size(400, 400);
@@ -36,7 +52,7 @@ Threat cabal [];
 		myXStepModifier = 0;
 		myYStepModifier = 0;
  	}
- 	void step() {
+ 	public void step() {
  		
  		for (int j = 0; j < stash.length; j++) {
  			if (dist(myX, myY, stash[j].myX, stash[j].myY) < 80) {
@@ -73,7 +89,7 @@ Threat cabal [];
  		myX = myX + (int)(Math.random() * myStepLength - myStepLength/2 - myXStepModifier);
  		myY = myY + (int)(Math.random() * myStepLength - myStepLength/2 - myYStepModifier);
  	}
- 	void show() {
+ 	public void show() {
  		fill(myColor);
  		rect(myX, myY, mySize, mySize);
  	}
@@ -87,7 +103,7 @@ Threat cabal [];
  		myX =  (int)(Math.random()*400);
  		myY =  (int)(Math.random()*400);
  	}
- 	void show() 
+ 	public void show() 
  	{
  		fill(255, 165, 0);
  		rect(myX, myY, 10, 10);
@@ -106,8 +122,8 @@ Threat cabal [];
  		myXStepModifier = 0;
  		myYStepModifier = 0;
  	}
- 	void step()	{
- 		if (Math.random() < 0.1) {
+ 	public void step()	{
+ 		if (Math.random() < 0.1f) {
  			myX = myX + (int)(Math.random()* (myBigStep - 1) - myBigStep/2);
  			myY = myY + (int)(Math.random()* (myBigStep - 1) - myBigStep/2);
  		} else {
@@ -119,12 +135,12 @@ Threat cabal [];
  			myY =  (int)(Math.random()*400);
  		}
  	}
- 	void show() {
+ 	public void show() {
  		fill(255, 0, 0);
  		rect(myX, myY, 20, 20);
  	}
  }
- void draw()   
+ public void draw()   
  {    
  	background(255);
  	//move and show the bacteria  
@@ -156,7 +172,7 @@ Threat cabal [];
  	}
  	
  }  
-void mousePressed() {
+public void mousePressed() {
 	if (mouseButton == LEFT) {
 		int j = (int)(Math.random()*stash.length);
 		stash[j].myX = mouseX;
@@ -202,3 +218,12 @@ Random walk, move towards food, move away from threats, threats and food can be 
 
 
 */
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Chemotaxis" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
