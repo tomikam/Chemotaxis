@@ -106,7 +106,7 @@ Threat cabal [];
  	{
  		myX =  (int)(Math.random()*400);
  		myY =  (int)(Math.random()*400);
- 		myStepLength = 5;
+ 		myStepLength = 6;
  		myBigStep = 20;
  		myXStepModifier = 0;
  		myYStepModifier = 0;
