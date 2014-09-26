@@ -54,6 +54,11 @@ Threat cabal [];
  	}
  	public void step() {
  		
+ 		if (myX < -50 || myX > 450 || myY < -50 || myY > 450) {
+ 			myX = (int)(Math.random()* width);
+ 			myY = (int)(Math.random()* height);
+ 		}
+
  		for (int j = 0; j < stash.length; j++) {
  			if (dist(myX, myY, stash[j].myX, stash[j].myY) < 80) {
 				if (myX < stash[j].myX) {
