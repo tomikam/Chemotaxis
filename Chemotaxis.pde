@@ -106,18 +106,18 @@ Threat cabal [];
  	{
  		myX =  (int)(Math.random()*400);
  		myY =  (int)(Math.random()*400);
- 		myStepLength = 6;
+ 		myStepLength = 5;
  		myBigStep = 20;
  		myXStepModifier = 0;
  		myYStepModifier = 0;
  	}
  	void step()	{
  		if (Math.random() < 0.1) {
- 			myX = myX + (int)(Math.random()* (myBigStep - 1) - myBigStep/2);
- 			myY = myY + (int)(Math.random()* (myBigStep - 1) - myBigStep/2);
+ 			myX = myX + (int)(Math.random()* (myBigStep) - myBigStep/2);
+ 			myY = myY + (int)(Math.random()* (myBigStep) - myBigStep/2);
  		} else {
- 			myX = myX + (int)(Math.random()* (myStepLength - 1) - myStepLength/2);
- 			myY = myY + (int)(Math.random()* (myStepLength - 1) - myStepLength/2);
+ 			myX = myX + (int)(Math.random()* (myStepLength) - myStepLength/2);
+ 			myY = myY + (int)(Math.random()* (myStepLength) - myStepLength/2);
  		}
  		if (myX < -20 || myX > width + 20 || myY < -20 || myY > height + 20) {
  			myX =  (int)(Math.random()*400);
